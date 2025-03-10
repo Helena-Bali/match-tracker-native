@@ -4,7 +4,8 @@ import alertTriangle from '../assets/images/alert-triangle.png';
 import {styles} from './errorStyles'
 import refresh from '../assets/images/Refresh.png';
 interface ErrorProps {
-    isTablet: boolean
+    isTablet: boolean,
+    onRetry: () => void
 }
 
 const Error = ({ onRetry, isTablet }:ErrorProps):JSX.Element => {
