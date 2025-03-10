@@ -2,7 +2,7 @@ import React from "react";
 import {styles} from './styles'
 import {Match} from "../types/match";
 import logo from "../assets/images/icon.png"
-import arrowUp from '../assets/images/chevron-up (1).png'
+import arrowUp from '../assets/images/chevron-up(1).png'
 import arrowDown from '../assets/images/arrow-down.png'
 import Toggled from "./Toggled";
 import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
