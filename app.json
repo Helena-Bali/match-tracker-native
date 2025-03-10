@@ -19,11 +19,14 @@
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+    "fonts": [
+      {
+        "TacticSans": ["./assets/fonts/TacticSans-BldIt.ttf"]
+      }
+    ],
     "plugins": [
-      "expo-router",
       [
         "expo-splash-screen",
         {
@@ -35,7 +38,10 @@
       ]
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": false
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
     }
   }
 }
