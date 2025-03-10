@@ -11,7 +11,7 @@ interface ToggledProps {
     isLaptop: boolean
 }
 
-const Toggled: React.FC<ToggledProps> = ({match, isLaptop}) => {
+const Toggled = ({match, isLaptop}:ToggledProps): JSX.Element => {
     return (
         <View style={styles.toggledParent}>
             <View style={[styles.innerToggledParent, isLaptop && styles.rowLayout]}>

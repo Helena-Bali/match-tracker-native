@@ -7,7 +7,7 @@ interface ErrorProps {
     isTablet: boolean
 }
 
-const Error: React.FC<ErrorProps> = ({ onRetry, isTablet }) => {
+const Error = ({ onRetry, isTablet }:ErrorProps):JSX.Element => {
     return (
         <View style={isTablet? styles.errorRowContainer: styles.container}>
             <View style={isTablet? styles.rowErrorBox:styles.errorBox}>

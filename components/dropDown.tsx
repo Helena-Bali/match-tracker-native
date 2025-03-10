@@ -7,16 +7,16 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 interface DropDownProps {
     selectedStatus: string,
     isDropdownOpen: boolean,
-    setDropdownOpen: (isDropdownOpen) => void,
-    setSelectedStatus: (selectedStatus) => void
+    setDropdownOpen: (isDropdownOpen: boolean) => void,
+    setSelectedStatus: (selectedStatus: string) => void
 }
 
-const DropDown: React.FC<DropDownProps> = ({
-                                               setDropdownOpen,
-                                               isDropdownOpen,
-                                               selectedStatus,
-                                               setSelectedStatus
-                                           }) => {
+const DropDown = ({
+                      setDropdownOpen,
+                      isDropdownOpen,
+                      selectedStatus,
+                      setSelectedStatus
+                  }: DropDownProps): JSX.Element => {
     return (
         <View>
             <TouchableOpacity onPress={() => setDropdownOpen(!isDropdownOpen)} style={styles.dropDownContainer}>

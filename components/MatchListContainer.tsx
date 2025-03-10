@@ -6,12 +6,13 @@ import { useWindowDimensions} from 'react-native';
 import {subscribeToMatchUpdates, unsubscribeFromMatchUpdates} from "../services/socket";
 
 
+
 const MatchListContainer = (): JSX.Element => {
     const {width} = useWindowDimensions();
     const isLaptop = width >= 1280;
     const isTablet = width >= 991;
     const [matches, setMatches] = useState<Match[]>([]);
-    const [expandedMatches, setExpandedMatches] = useState<Set<string>>(new Set());
+    const [expandedMatches, setExpandedMatches] = useState<Set<number>>(new Set());
     const [selectedStatus, setSelectedStatus] = useState<string>("all");
     const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
     const [isError, setIsError] = useState<boolean>(false);
@@ -40,7 +41,7 @@ const MatchListContainer = (): JSX.Element => {
             const newMatches = updatedData.data;
             setMatches((prevMatches: Match[]) =>
                 prevMatches.map(match => {
-                        const createUniqueKey = (match) => `${match.title}-${match.time}`;
+                        const createUniqueKey = (match: Match) => `${match.title}-${match.time}`;
                         const updatedMatch = newMatches.find(
                             (newMatch) => createUniqueKey(match) === createUniqueKey(newMatch)
                         )
@@ -59,7 +60,7 @@ const MatchListContainer = (): JSX.Element => {
         ? matches
         : matches.filter(match => match.status.toLowerCase() === selectedStatus.toLowerCase());
 
-    const toggleExpand = useCallback((index) => {
+    const toggleExpand = useCallback((index: number) => {
         setExpandedMatches(prev => {
             const newSet = new Set(prev);
             newSet.has(index) ? newSet.delete(index) : newSet.add(index);

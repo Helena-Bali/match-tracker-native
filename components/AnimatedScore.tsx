@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Text, Animated } from 'react-native';
 
-const AnimatedScore: React.FC<{ score: number }> = ({ score }) => {
+const AnimatedScore  = ({ score }: { score: number }): JSX.Element => {
     const animatedValue = useRef(new Animated.Value(score)).current;
     const [displayedScore, setDisplayedScore] = useState(score);
 

@@ -9,7 +9,7 @@ interface TeamProps {
     team: Team
 }
 
-const TeamComponent: React.FC<TeamProps> = ({ isLaptop, team}) => {
+const TeamComponent = ({ isLaptop, team}: TeamProps): JSX.Element => {
     return (
         <View style={[styles.teamContainer, isLaptop && styles.rowTeamContainer]}>
             <View style={styles.userParentCont}>

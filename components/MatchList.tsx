@@ -15,30 +15,30 @@ interface MatchListProps {
     isTablet: boolean,
     isLaptop: boolean,
     selectedStatus: string,
-    setSelectedStatus: (selectedStatus) => void,
+    setSelectedStatus: (selectedStatus: string) => void,
     isDropdownOpen: boolean,
-    setDropdownOpen: (isDropdownOpen) => void,
+    setDropdownOpen: (isDropdownOpen: boolean) => void,
     isError: boolean,
     getMatches: () => void,
     filteredMatches: Match[],
-    toggleExpand: (number) => void,
-    expandedMatches: Set<string | number>
+    toggleExpand: (index: number) => void,
+    expandedMatches: Set<number>
 }
 
-const MatchList: React.FC<MatchListProps> = ({
-                                                 matches,
-                                                 isTablet,
-                                                 isLaptop,
-                                                 selectedStatus,
-                                                 setSelectedStatus,
-                                                 isDropdownOpen,
-                                                 setDropdownOpen,
-                                                 isError,
-                                                 getMatches,
-                                                 filteredMatches,
-                                                 toggleExpand,
-                                                 expandedMatches
-                                             }) => {
+const MatchList = ({
+                       matches,
+                       isTablet,
+                       isLaptop,
+                       selectedStatus,
+                       setSelectedStatus,
+                       isDropdownOpen,
+                       setDropdownOpen,
+                       isError,
+                       getMatches,
+                       filteredMatches,
+                       toggleExpand,
+                       expandedMatches
+                   }:MatchListProps): JSX.Element => {
     return (
         <ScrollView style={styles.container}>
             <View style={isTablet ? styles.errorRowContainer : null}>
