@@ -5,11 +5,8 @@ import MatchList from "./MatchList";
 import { useWindowDimensions} from 'react-native';
 import {subscribeToMatchUpdates, unsubscribeFromMatchUpdates} from "../services/socket";
 
-interface MatchListProps {
-    onSelectMatch: (match: Match) => void;
-}
 
-const MatchListContainer: React.FC<MatchListProps> = () => {
+const MatchListContainer = (): JSX.Element => {
     const {width} = useWindowDimensions();
     const isLaptop = width >= 1280;
     const isTablet = width >= 991;
