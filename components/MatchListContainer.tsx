@@ -58,7 +58,13 @@ const MatchListContainer = (): JSX.Element => {
 
     const filteredMatches = selectedStatus === "all"
         ? matches
-        : matches.filter(match => match.status.toLowerCase() === selectedStatus.toLowerCase());
+        : matches.filter((match) => {
+            const status = match.status == "Ongoing" ? "Live" :
+                match.status == "Scheduled" ?
+                    "Match preparing" :
+                    match.status == "Finished" ?
+                        "Finished" : match.status
+            return status.toLowerCase() === selectedStatus.toLowerCase()});
 
     const toggleExpand = useCallback((index: number) => {
         setExpandedMatches(prev => {

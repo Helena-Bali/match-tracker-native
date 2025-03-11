@@ -28,6 +28,7 @@ interface MatchListProps {
     onRetry: () => void
 }
 
+
 const MatchList = ({
                        matches,
                        isTablet,
@@ -41,7 +42,7 @@ const MatchList = ({
                        filteredMatches,
                        toggleExpand,
                        expandedMatches
-                   }:MatchListProps): JSX.Element => {
+                   }: MatchListProps): JSX.Element => {
     return (
         <ScrollView style={styles.container}>
             <View style={isTablet ? styles.errorRowContainer : null}>
@@ -56,16 +57,23 @@ const MatchList = ({
                     />
                 </View>
                 {isError && <Error isTablet={isTablet}/>}
-                <TouchableOpacity style={isTablet? errorStyles.rowRefreshButton:errorStyles.refreshButton}
-                                  onPress={() => {onRetry()}}>
+                <TouchableOpacity style={isTablet ? errorStyles.rowRefreshButton : errorStyles.refreshButton}
+                                  onPress={() => {
+                                      onRetry()
+                                  }}>
                     <View style={errorStyles.buttonContent}>
                         <Text style={errorStyles.buttonText}>Обновить</Text>
-                        <Image source={refresh} style={errorStyles.refreshIcon} />
+                        <Image source={refresh} style={errorStyles.refreshIcon}/>
                     </View>
                 </TouchableOpacity>
             </View>
-            {filteredMatches.map((match, index) => (
-                <View key={`${match.time}`}>
+            {filteredMatches.map((match, index) => {
+                const status = match.status == "Ongoing" ? "Live" :
+                    match.status == "Scheduled" ?
+                        "Match preparing" :
+                        match.status == "Finished" ?
+                            "Finished" : match.status
+                return <View key={`${match.time}`}>
                     <View key={`${match.time}`} style={styles.matchContainer}>
                         <View style={styles.teamContainer}>
                             <Image source={logo} style={styles.teamLogo}/>
@@ -75,7 +83,7 @@ const MatchList = ({
                             <Text style={styles.score}>
                                 <AnimatedScore score={match.awayScore}/> : <AnimatedScore score={match.homeScore}/>
                             </Text>
-                            <Text style={[styles.status, styles[match.status.toLowerCase()]]}>{match.status}</Text>
+                            <Text style={[styles.status, styles[match.status.toLowerCase()]]}>{status}</Text>
                         </View>
                         <View style={styles.teamContainer}>
                             <Text style={styles.teamName}>{match.homeTeam.name}</Text>
@@ -96,7 +104,7 @@ const MatchList = ({
                             </TouchableOpacity>)}
                     </View>
                 </View>
-            ))}
+            })}
         </ScrollView>
     );
 };

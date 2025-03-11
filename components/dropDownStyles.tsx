@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         width: "100%",
+        minWidth: 170,
         height: 56,
         marginBottom: 10,
     },
@@ -26,6 +27,7 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         paddingVertical: 5,
         marginBottom: 5,
+        minWidth: 170,
         width: "100%",
     },
     dropDownItem: {

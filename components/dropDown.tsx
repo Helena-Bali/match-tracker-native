@@ -25,14 +25,20 @@ const DropDown = ({
             </TouchableOpacity>
             {isDropdownOpen && (
                 <View style={styles.dropDownList}>
-                    {['all', 'Ongoing', 'Finished', 'Scheduled'].map(status => (
-                        <TouchableOpacity key={status} onPress={() => {
-                            setSelectedStatus(status);
+                    {['all', 'Ongoing', 'Finished', 'Scheduled'].map(status => {
+                        const newStatus = status ==
+                        "Ongoing" ? "Live" :
+                            status == "Scheduled" ?
+                                "Match preparing" :
+                                status == "Finished" ?
+                                    "Finished" : status
+                        return <TouchableOpacity key={status} onPress={() => {
+                            setSelectedStatus(newStatus);
                             setDropdownOpen(false);
                         }}>
-                            <Text style={styles.dropDownItem}>{status === "all" ? "Все статусы" : status}</Text>
+                            <Text style={styles.dropDownItem}>{status === "all" ? "Все статусы" : newStatus}</Text>
                         </TouchableOpacity>
-                    ))}
+                    })}
                 </View>
             )}
         </View>
