@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Dimensions} from "react-native";
+
 
 
 export const styles = StyleSheet.create({
@@ -53,4 +53,6 @@ export const styles = StyleSheet.create({
     finished: {backgroundColor: '#EB0237'},
     scheduled: {backgroundColor: '#EB6402'},
     expandButton: {alignItems: 'center', width: 28, height: 28},
-});
+}
+
+);

@@ -1,6 +1,6 @@
 import {StyleSheet} from "react-native";
 
-export const styles = StyleSheet.create({
+export const errorStyles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
@@ -46,7 +46,8 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 24,
         borderRadius: 3,
         width: "100%",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom: 20
     },
 
     rowRefreshButton: {

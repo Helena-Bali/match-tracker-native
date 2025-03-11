@@ -73,7 +73,7 @@ const MatchListContainer = (): JSX.Element => {
                    setSelectedStatus={setSelectedStatus}
                    isDropdownOpen={isDropdownOpen} setDropdownOpen={setDropdownOpen} isError={isError}
                    getMatches={getMatches} filteredMatches={filteredMatches} toggleExpand={toggleExpand}
-                   expandedMatches={expandedMatches}/>
+                   expandedMatches={expandedMatches} onRetry={getMatches}/>
     );
 };
 

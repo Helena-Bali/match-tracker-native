@@ -1,7 +1,7 @@
 import { Match } from "../types/match";
 import { WS_BASE_URL, ENDPOINTS } from "../config";
 
-const socket = new WebSocket(`${WS_BASE_URL}${ENDPOINTS.WS}`);
+const socket = new WebSocket("wss://app.ftoyd.com/fronttemp-service/ws");
 
 
 export const subscribeToMatchUpdates = (callback: (updatedData: { type: string; data: Match[] }) => void) => {

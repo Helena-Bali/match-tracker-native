@@ -1,5 +1,6 @@
 import React from "react";
 import {styles} from './styles'
+import {errorStyles} from './errorStyles'
 import {Match} from "../types/match";
 import logo from "../assets/images/icon.png"
 import arrowUp from '../assets/images/chevron-up(1).png'
@@ -9,6 +10,7 @@ import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 import Error from "./Error";
 import DropDown from "./dropDown";
 import AnimatedScore from "./AnimatedScore";
+import refresh from "../assets/images/Refresh.png";
 
 interface MatchListProps {
     matches: Match[],
@@ -22,7 +24,8 @@ interface MatchListProps {
     getMatches: () => void,
     filteredMatches: Match[],
     toggleExpand: (index: number) => void,
-    expandedMatches: Set<number>
+    expandedMatches: Set<number>,
+    onRetry: () => void
 }
 
 const MatchList = ({
@@ -34,7 +37,7 @@ const MatchList = ({
                        isDropdownOpen,
                        setDropdownOpen,
                        isError,
-                       getMatches,
+                       onRetry,
                        filteredMatches,
                        toggleExpand,
                        expandedMatches
@@ -52,7 +55,14 @@ const MatchList = ({
                               setDropdownOpen={setDropdownOpen}
                     />
                 </View>
-                {isError && <Error isTablet={isTablet} onRetry={getMatches}/>}
+                {isError && <Error isTablet={isTablet}/>}
+                <TouchableOpacity style={isTablet? errorStyles.rowRefreshButton:errorStyles.refreshButton}
+                                  onPress={() => {onRetry()}}>
+                    <View style={errorStyles.buttonContent}>
+                        <Text style={errorStyles.buttonText}>Обновить</Text>
+                        <Image source={refresh} style={errorStyles.refreshIcon} />
+                    </View>
+                </TouchableOpacity>
             </View>
             {filteredMatches.map((match, index) => (
                 <View key={`${match.time}`}>

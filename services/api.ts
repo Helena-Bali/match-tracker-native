@@ -9,7 +9,7 @@ interface ApiResponse {
 }
 
 export const fetchMatches = async (): Promise<ApiResponse> => {
-    const response = await fetch(`${API_BASE_URL}${ENDPOINTS.FETCH_MATCHES}`);
+    const response = await fetch("https://app.ftoyd.com/fronttemp-service/fronttemp");
     return response.json();
 };
 
