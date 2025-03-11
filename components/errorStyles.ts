@@ -42,7 +42,8 @@ export const errorStyles = StyleSheet.create({
     },
     refreshButton: {
         backgroundColor: '#EB0237',
-        paddingVertical: 12,
+        paddingTop: 12,
+        paddingBottom: 12,
         paddingHorizontal: 24,
         borderRadius: 3,
         width: "100%",
