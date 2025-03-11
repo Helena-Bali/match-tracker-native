@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
             marginTop: 5,
             fontSize: 12,
             height: 27,
-            minWidth: 92,
+            minWidth: 70,
             textAlign: "center",
         },
         ongoing: {backgroundColor: '#43AD28'},
